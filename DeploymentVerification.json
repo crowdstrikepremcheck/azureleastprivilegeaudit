@@ -9,10 +9,11 @@
        "generatedGuid": {
           "type": "string",
           "defaultValue": "[guid(parameters('resourceName'))]"
-    }
+    },
 	"mspGuid":{
 	   "type": "string",
 	   "defaultValue": "testing"
+	}
     },
     "variables": {
      "mspRegistrationName": "[parameters('generatedGuid')]",
