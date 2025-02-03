@@ -83,7 +83,7 @@
 	"parameters":{
 	   "generatedGuid": {
 	       "value": "[parameters('generatedGuid')]"
-    }
+        }
       }
     }
   ]
