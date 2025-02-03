@@ -34,7 +34,7 @@
       "apiVersion": "2020-02-01-preview",
 	  "type": "Microsoft.Automation/automationAccounts/runbooks",
       "location": "eastus",
-      "name": "Microsoft.Automation/automationAccounts/runbooks/SecurityAudit",
+      "name": "automationAccounts/runbooks/SecurityAudit",
       "properties": {
         "runbookType": "Script",
         "logProgress": "false",
@@ -44,13 +44,13 @@
           "version": "1.0.0.0"
         }
       },
-      "kind": "Microsoft.Automation/automationAccounts/runbooks"
+      "kind": "runbooks"
     },
     {
       "apiVersion": "2020-02-01-preview",
 	  "type": "Microsoft.Automation/automationAccounts/runbooks",
       "location": "eastus",
-      "name": "Microsoft.Automation/automationAccounts/runbooks/SecurityCenterAudit",
+      "name": "automationAccounts/runbooks/SecurityCenterAudit",
       "properties": {
         "runbookType": "Script",
         "logProgress": "false",
@@ -60,7 +60,7 @@
           "version": "1.0.0.0"
         }
       },
-      "kind": "Microsoft.Automation/automationAccounts/runbooksrunbooks"
+      "kind": "runbooks"
     },
     {
       "apiVersion": "2020-02-01-preview",
