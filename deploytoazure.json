@@ -63,7 +63,7 @@
       "kind": "runbooks"
     },
     {
-      "apiVersion": "2020-02-01-preview",
+      "apiVersion": "2024-11-01",
       "name": "DeploymentVerification",
       "type": "Microsoft.Resources/deployments",
       "properties": {
