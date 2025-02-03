@@ -1,0 +1,56 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+     "mspOfferName": {
+      "type": "string",
+      "metadata": {
+       "description": "Azure Least Privilege Audit"
+      },
+      "defaultValue": "azure-least-privilige-audit"
+     },
+     "mspOfferDescription": {
+      "type": "string",
+      "metadata": {
+       "description": "Series of powershell scripts to manually use in a runbook or CLI to audit your IAM settings."
+      },
+      "defaultValue": "Series of powershell scripts to manually use in a runbook or CLI to audit your IAM settings."
+     }
+    },
+    "variables": {
+     "mspRegistrationName": "[guid(parameters('mspOfferName'))]",
+     "mspAssignmentName": "[guid(parameters('mspOfferName'))]",
+     "managedByTenantId": "ec14fc73-fa52-465e-9fe9-a9e5213ebcde",
+     "authorizations": [
+      {
+        "principalId": "5b83e822-9887-44a9-91de-b080e8ba3d28",
+        "roleDefinitionId": "8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
+        "principalIdDisplayName": "actor_emulation"
+       }
+	 ]
+    },
+    "resources": [
+     {
+      "type": "Microsoft.ManagedServices/registrationDefinitions",
+      "apiVersion": "2020-02-01-preview",
+      "name": "[variables('mspRegistrationName')]",
+      "properties": {
+       "registrationDefinitionName": "[parameters('mspOfferName')]",
+       "description": "[parameters('mspOfferDescription')]",
+       "managedByTenantId": "[variables('managedByTenantId')]",
+       "authorizations": "[variables('authorizations')]"
+      }
+     },
+     {
+      "type": "Microsoft.ManagedServices/registrationAssignments",
+      "apiVersion": "2020-02-01-preview",
+      "name": "[variables('mspAssignmentName')]",
+      "dependsOn": [
+       "[resourceId('Microsoft.ManagedServices/registrationDefinitions/', variables('mspRegistrationName'))]"
+      ],
+      "properties": {
+          "registrationDefinitionId": "[resourceId('Microsoft.ManagedServices/registrationDefinitions/', variables('mspRegistrationName'))]"
+        }
+       }
+     ]
+   }
