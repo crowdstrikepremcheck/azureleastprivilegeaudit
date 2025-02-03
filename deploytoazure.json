@@ -22,6 +22,7 @@
      "sku": {
       "name": "Basic"
     }
+     }
   },
   {
    "apiVersion": "2020-02-01-preview",
