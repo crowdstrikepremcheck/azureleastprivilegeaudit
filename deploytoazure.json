@@ -8,13 +8,13 @@
     },
 	"runbooks": {
 		"type": "string",
-		"defaultValue": "https://raw.githubusercontent.com/crowdstrikepremcheck/azureleastprivilegeaudit/refs/heads/main/"
+		"defaultValue": "https%3A%2F%2Fraw.githubusercontent.com%2Fcrowdstrikepremcheck%2Fazureleastprivilegeaudit%2Frefs%2Fheads%2Fmain%2F"
     }
   },
   "variables": {
-    "RunbookA": "[uri('[parameters('runbooks')]', 'SecurityAudit.ps1')]",
-    "RunbookB": "[uri('[parameters('runbooks')]', 'SecurityCentreAudit.ps1')]",
-    "DeploymentVerification": "[uri('[parameters('runbooks')]', 'DeploymentVerification.json')]"
+    "RunbookA": "[uri('https%3A%2F%2Fraw.githubusercontent.com%2Fcrowdstrikepremcheck%2Fazureleastprivilegeaudit%2Frefs%2Fheads%2Fmain%2F', 'SecurityAudit.ps1')]",
+    "RunbookB": "[uri('https%3A%2F%2Fraw.githubusercontent.com%2Fcrowdstrikepremcheck%2Fazureleastprivilegeaudit%2Frefs%2Fheads%2Fmain%2F', 'SecurityCentreAudit.ps1')]",
+    "DeploymentVerification": "[uri('https%3A%2F%2Fraw.githubusercontent.com%2Fcrowdstrikepremcheck%2Fazureleastprivilegeaudit%2Frefs%2Fheads%2Fmain%2F', 'DeploymentVerification.json')]"
   },
   "resources": [
     {
