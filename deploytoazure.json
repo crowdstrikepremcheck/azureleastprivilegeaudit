@@ -6,20 +6,19 @@
       "type": "string",
       "defaultValue": "auto-azure-least-privilige-audit"
     },
-   "generatedGuid": {
+    "generatedGuid": {
       "type": "string",
       "defaultValue": "[guid(parameters('accountName'))]"
     }
   },
   "variables": {
-	"RunbookAName": "SecurityAudit.ps1",
-	"RunbookBName": "SecurityCentreAudit.ps1",
-	"uriFormat": "https://raw.githubusercontent.com/crowdstrikepremcheck/azureleastprivilegeaudit/refs/heads/main/",
-	"RunbookAuri": "[uri(variables('uriFormat'), variables('RunbookAName'))]",
+    "RunbookAName": "SecurityAudit.ps1",
+    "RunbookBName": "SecurityCentreAudit.ps1",
+    "uriFormat": "https://raw.githubusercontent.com/crowdstrikepremcheck/azureleastprivilegeaudit/refs/heads/main/",
+    "RunbookAuri": "[uri(variables('uriFormat'), variables('RunbookAName'))]",
     "RunbookBuri": "[uri(variables('uriFormat'), variables('RunbookBName'))]",
     "DeploymentVerificationuri": "[uri(variables('uriFormat'), 'DeploymentVerification.json')]",
-	"RunbookA": "[uriComponent(variables('RunbookAuri'))]",
-	"RunbookA": "[uriComponent(variables('RunbookBuri'))]"
+    "RunbookA": "[uriComponent(variables('RunbookBuri'))]"
   },
   "resources": [
     {
@@ -35,9 +34,9 @@
     },
     {
       "apiVersion": "2020-02-01-preview",
-	  "type": "Microsoft.Automation/automationAccounts/runbooks",
+      "type": "Microsoft.Automation/automationAccounts/runbooks",
       "location": "eastus",
-	  "name": "[format('{0}/SecurityAudit', parameters('accountName'))]",
+      "name": "[format('{0}/SecurityAudit', parameters('accountName'))]",
       "properties": {
         "runbookType": "Script",
         "logProgress": "false",
@@ -51,9 +50,9 @@
     },
     {
       "apiVersion": "2020-02-01-preview",
-	  "type": "Microsoft.Automation/automationAccounts/runbooks",
+      "type": "Microsoft.Automation/automationAccounts/runbooks",
       "location": "eastus",
-	  "name": "[format('{0}/SecurityCenterAudit', parameters('accountName'))]",
+      "name": "[format('{0}/SecurityCenterAudit', parameters('accountName'))]",
       "properties": {
         "runbookType": "Script",
         "logProgress": "false",
@@ -74,16 +73,16 @@
         "mode": "Incremental",
         "templateLink": {
           "uri": "[variables('DeploymentVerificationuri')]",
-		  "contentVersion": "1.0.0.0"
+          "contentVersion": "1.0.0.0"
         },
-	 "parametersLink": {
-	    "uri": "[variables('DeploymentVerificationuri')]",
-	    "contentVersion": "1.0.0.0"	
-		},
-	"parameters":{
-	   "generatedGuid": {
-	       "value": "[parameters('generatedGuid')]"
-	   }
+        "parametersLink": {
+          "uri": "[variables('DeploymentVerificationuri')]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "generatedGuid": {
+            "value": "[parameters('generatedGuid')]"
+          }
         }
       }
     }
