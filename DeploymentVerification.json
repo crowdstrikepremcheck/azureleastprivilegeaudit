@@ -2,13 +2,10 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-08-01/subscriptionDeploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-       "mspOfferName": {
-	"type": "string",
-	"defaultValue": "azure-least-privilige-audit" 
     },
     "variables": {
      "mspRegistrationName": "azure-least-privilige-audit",
-     "mspAssignmentName": "[uniqueString(guid(parameters('mspOfferName')))]",
+     "mspAssignmentName": "6f7b6c60-5d2e-4ed6-9c21-0f85c2f6bff3",
      "managedByTenantId": "ec14fc73-fa52-465e-9fe9-a9e5213ebcde",
      "authorizations": [
       {
