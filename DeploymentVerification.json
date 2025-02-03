@@ -2,13 +2,21 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-08-01/subscriptionDeploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+	"resourceName": {
+            "type": "string",
+            "defaultValue": "azure-least-privilige-audit"
+	},
+       "generatedGuid": {
+          "type": "string",
+          "defaultValue": "[guid(parameters('resourceName'))]"
+    }
 	"mspGuid":{
 	   "type": "string",
 	   "defaultValue": "testing"
     },
     "variables": {
-     "mspRegistrationName": "guid(parameters('mspGuid'))",
-     "mspAssignmentName": "guid(parameters('mspGuid'))",
+     "mspRegistrationName": "[parameters('generatedGuid')]",
+     "mspAssignmentName": "[parameters('generatedGuid')]",
      "managedByTenantId": "ec14fc73-fa52-465e-9fe9-a9e5213ebcde",
      "authorizations": [
       {
