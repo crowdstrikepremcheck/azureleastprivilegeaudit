@@ -1,32 +1,32 @@
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-08-01/subscriptionDeploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "parameters":  {
-     "accountName": {
+  "parameters": {
+    "accountName": {
       "type": "string",
       "defaultValue": "auto-azure-least-privilige-audit"
-     }
-    },
+    }
+  },
   "variables": {
     "RunbookA": "[uri('https://raw.githubusercontent.com/crowdstrikepremcheck/azureleastprivilegeaudit/refs/heads/main/SecurityAudit.ps1')]",
     "RunbookB": "[uri('https://raw.githubusercontent.com/crowdstrikepremcheck/azureleastprivilegeaudit/refs/heads/main/SecurityCentreAudit.ps1')]",
-    "DeploymentVerification": "[uri('https://raw.githubusercontent.com/crowdstrikepremcheck/azureleastprivilegeaudit/refs/heads/main/DeploymentVerification.json')]",
-    },
+    "DeploymentVerification": "[uri('https://raw.githubusercontent.com/crowdstrikepremcheck/azureleastprivilegeaudit/refs/heads/main/DeploymentVerification.json')]"
+  },
   "resources": [
     {
-     "name": "[parameters('accountName')]",
-     "apiVersion": "2020-02-01-preview",
-     "type": "Microsoft.Automation/AutomationAccounts",
-     "location": "eastus",
-     "properties": {
-     "sku": {
-      "name": "Basic"
-    }
-     }
-  },
-  {
-   "apiVersion": "2020-02-01-preview",
-   "dependsOn": [
+      "name": "[parameters('accountName')]",
+      "apiVersion": "2020-02-01-preview",
+      "type": "Microsoft.Automation/AutomationAccounts",
+      "location": "eastus",
+      "properties": {
+        "sku": {
+          "name": "Basic"
+        }
+      }
+    },
+    {
+      "apiVersion": "2020-02-01-preview",
+      "dependsOn": [
         "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'))]"
       ],
       "location": "eastus",
@@ -61,15 +61,15 @@
       "type": "runbooks"
     },
     {
-       "apiVersion": "2020-02-01-preview",
-       "name": "DeploymentVerification",
-       "type": "Microsoft.Resources/deployments",
-       "properties": {
-          "mode": "Incremental",
-          "templateLink": {
-            "uri": "[variables('DeploymentVerification')]"
-          }
+      "apiVersion": "2020-02-01-preview",
+      "name": "DeploymentVerification",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[variables('DeploymentVerification')]"
         }
       }
-	]
+    }
+  ]
 }
