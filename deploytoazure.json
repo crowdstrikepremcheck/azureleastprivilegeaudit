@@ -40,7 +40,7 @@
           "version": "1.0.0.0"
         }
       },
-      "type": "runbooks"
+      "kind": "runbooks"
     },
     {
       "apiVersion": "2020-02-01-preview",
@@ -58,7 +58,7 @@
           "version": "1.0.0.0"
         }
       },
-      "type": "runbooks"
+      "kind": "runbooks"
     },
     {
       "apiVersion": "2020-02-01-preview",
