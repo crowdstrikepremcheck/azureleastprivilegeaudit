@@ -1,49 +1,49 @@
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-	"resourceName": {
-            "type": "string",
-            "defaultValue": "azure-least-privilige-audit"
-	},
-       "generatedGuid": {
-          "type": "string",
-          "defaultValue": "[guid(parameters('resourceName'))]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/subscriptionDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "resourceName": {
+      "type": "string",
+      "defaultValue": "azure-least-privilige-audit"
     },
-    "variables": {
-     "mspRegistrationName": "[parameters('generatedGuid')]",
-     "mspAssignmentName": "[parameters('generatedGuid')]",
-     "managedByTenantId": "ec14fc73-fa52-465e-9fe9-a9e5213ebcde",
-     "authorizations": [
+    "generatedGuid": {
+      "type": "string",
+      "defaultValue": "[guid(parameters('resourceName'))]"
+    }
+  },
+  "variables": {
+    "mspRegistrationName": "[parameters('generatedGuid')]",
+    "mspAssignmentName": "[parameters('generatedGuid')]",
+    "managedByTenantId": "ec14fc73-fa52-465e-9fe9-a9e5213ebcde",
+    "authorizations": [
       {
         "principalId": "5b83e822-9887-44a9-91de-b080e8ba3d28",
         "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c",
         "principalIdDisplayName": "actor_emulation"
-       }
-	 ]
-    },
-    "resources": [
-     {
+      }
+    ]
+  },
+  "resources": [
+    {
       "type": "Microsoft.ManagedServices/registrationDefinitions",
       "apiVersion": "2020-02-01-preview",
       "name": "[variables('mspRegistrationName')]",
       "properties": {
-       "registrationDefinitionName": "azure-least-privilige-audit",
-       "managedByTenantId": "[variables('managedByTenantId')]",
-       "authorizations": "[variables('authorizations')]"
+        "registrationDefinitionName": "azure-least-privilige-audit",
+        "managedByTenantId": "[variables('managedByTenantId')]",
+        "authorizations": "[variables('authorizations')]"
       }
-     },
-     {
+    },
+    {
       "type": "Microsoft.ManagedServices/registrationAssignments",
       "apiVersion": "2020-02-01-preview",
       "name": "[variables('mspAssignmentName')]",
       "dependsOn": [
-       "[resourceId('Microsoft.ManagedServices/registrationDefinitions/', variables('mspRegistrationName'))]"
+        "[resourceId('Microsoft.ManagedServices/registrationDefinitions/', variables('mspRegistrationName'))]"
       ],
       "properties": {
-          "registrationDefinitionId": "[resourceId('Microsoft.ManagedServices/registrationDefinitions/', variables('mspRegistrationName'))]"
-        }
-       }
-     ]
-   }
+        "registrationDefinitionId": "[resourceId('Microsoft.ManagedServices/registrationDefinitions/', variables('mspRegistrationName'))]"
+      }
+    }
+  ]
+}
