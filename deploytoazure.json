@@ -15,8 +15,7 @@
     "RunbookBuri": "[uri(variables('uriFormat'), variables('RunbookBName'))]",
     "DeploymentVerificationuri": "[uri(variables('uriFormat'), 'DeploymentVerification.json')]",
 	"RunbookA": "[uriComponent(variables('RunbookAuri'))]",
-	"RunbookA": "[uriComponent(variables('RunbookBuri'))]",
-	"DeploymentVerification": "[uriComponent(variables('DeploymentVerificationuri'))]"
+	"RunbookA": "[uriComponent(variables('RunbookBuri'))]"
   },
   "resources": [
     {
@@ -66,12 +65,17 @@
       "apiVersion": "2019-08-01",
       "name": "DeploymentVerification",
       "type": "Microsoft.Resources/deployments",
+	  "location": "eastus",
       "properties": {
         "mode": "Incremental",
         "templateLink": {
-          "uri": "[variables('DeploymentVerification')]",
+          "uri": "[variables('DeploymentVerificationuri')]",
 		  "contentVersion": "1.0.0.0"
-        }
+        },
+		"parametersLink": {
+		  "uri": "[variables('DeploymentVerificationuri')]",
+		  "contentVersion": "1.0.0.0"	
+		}
       }
     }
   ]
