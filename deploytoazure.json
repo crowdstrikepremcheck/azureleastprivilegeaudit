@@ -5,6 +5,10 @@
     "accountName": {
       "type": "string",
       "defaultValue": "auto-azure-least-privilige-audit"
+    },
+   "generatedGuid": {
+      "type": "string",
+      "defaultValue": "[guid(parameters('accountName'))]"
     }
   },
   "variables": {
