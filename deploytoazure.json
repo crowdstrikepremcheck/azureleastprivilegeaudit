@@ -65,7 +65,7 @@
       "apiVersion": "2019-08-01",
       "name": "DeploymentVerification",
       "type": "Microsoft.Resources/deployments",
-	  "location": "eastus",
+      "location": "eastus",
       "properties": {
         "mode": "Incremental",
         "templateLink": {
