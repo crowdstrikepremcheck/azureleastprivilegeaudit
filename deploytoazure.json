@@ -76,10 +76,13 @@
           "uri": "[variables('DeploymentVerificationuri')]",
 		  "contentVersion": "1.0.0.0"
         },
-		"parametersLink": {
-		  "uri": "[variables('DeploymentVerificationuri')]",
-		  "contentVersion": "1.0.0.0"	
-		}
+	 "parametersLink": {
+	    "uri": "[variables('DeploymentVerificationuri')]",
+	    "contentVersion": "1.0.0.0"	
+		},
+	"parameters":{
+	   "generatedGuid": "[parameters('generatedGuid'))]"
+    }
       }
     }
   ]
