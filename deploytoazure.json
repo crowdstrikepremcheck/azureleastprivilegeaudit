@@ -81,7 +81,8 @@
 	    "contentVersion": "1.0.0.0"	
 		},
 	"parameters":{
-	   "generatedGuid": "[parameters('generatedGuid')]"
+	   "generatedGuid": {
+	       "value": "[parameters('generatedGuid')]"
     }
       }
     }
