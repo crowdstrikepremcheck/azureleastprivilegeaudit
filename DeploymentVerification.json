@@ -2,13 +2,13 @@
   "$schema": "https://schema.management.azure.com/schemas/2019-08-01/subscriptionDeploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "resourceName": {
+    "productName": {
       "type": "string",
       "defaultValue": "azure-least-privilige-audit"
     },
     "generatedGuid": {
       "type": "string",
-      "defaultValue": "[guid(parameters('resourceName'))]"
+      "defaultValue": "[guid(parameters('productName'))]"
     }
   },
   "variables": {
