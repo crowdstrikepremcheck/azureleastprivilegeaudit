@@ -4,11 +4,11 @@
     "parameters": {
 	"mspGuid":{
 	   "type": "string",
-	   "defaultValue": "guid()"
+	   "defaultValue": "testing"
     },
     "variables": {
-     "mspRegistrationName": "parameters('mspGuid')",
-     "mspAssignmentName": "parameters('mspGuid')",
+     "mspRegistrationName": "guid(parameters('mspGuid'))",
+     "mspAssignmentName": "guid(parameters('mspGuid'))",
      "managedByTenantId": "ec14fc73-fa52-465e-9fe9-a9e5213ebcde",
      "authorizations": [
       {
