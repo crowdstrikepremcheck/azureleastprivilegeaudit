@@ -24,7 +24,7 @@
      "authorizations": [
       {
         "principalId": "5b83e822-9887-44a9-91de-b080e8ba3d28",
-        "roleDefinitionId": "8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
+        "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c",
         "principalIdDisplayName": "actor_emulation"
        }
 	 ]
