@@ -12,7 +12,7 @@
 	"RunbookBName": "SecurityCentreAudit.ps1",
 	"uriFormat": "https://raw.githubusercontent.com/crowdstrikepremcheck/azureleastprivilegeaudit/refs/heads/main/",
 	"RunbookAuri": "[uri(variables('uriFormat'), variables('RunbookAName'))]",
-    "RunbookBuri": "[uri(variables('uriFormat')', variables('RunbookBName'))]",
+    "RunbookBuri": "[uri(variables('uriFormat'), variables('RunbookBName'))]",
     "DeploymentVerificationuri": "[uri(variables('uriFormat'), 'DeploymentVerification.json')]",
 	"RunbookA": "[uriComponent(variables('RunbookAuri'))]",
 	"RunbookA": "[uriComponent(variables('RunbookBuri'))]",
@@ -49,7 +49,7 @@
     {
       "apiVersion": "2020-02-01-preview",
 	  "type": "Microsoft.Automation/automationAccounts/runbooks",
-      "location": "westeurope",
+      "location": "eastus",
       "name": "SecurityCenterAudit",
       "properties": {
         "runbookType": "Script",
