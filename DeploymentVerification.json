@@ -5,7 +5,7 @@
     },
     "variables": {
      "mspRegistrationName": "azure-least-privilige-audit",
-     "mspAssignmentName": "[guid('azure-least-privilige-audit'))]",
+     "mspAssignmentName": "[guid('azure-least-privilige-audit')]",
      "managedByTenantId": "ec14fc73-fa52-465e-9fe9-a9e5213ebcde",
      "authorizations": [
       {
