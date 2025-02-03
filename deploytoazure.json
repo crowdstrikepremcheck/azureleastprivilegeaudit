@@ -5,13 +5,15 @@
     "accountName": {
       "type": "string",
       "defaultValue": "auto-azure-least-privilige-audit"
-    }
+    },
+	"runbooks": {
+		"type": "string",
+		"defaultValue": "https://raw.githubusercontent.com/crowdstrikepremcheck/azureleastprivilegeaudit/refs/heads/main/"
   },
   "variables": {
-	"runbooks": "https://raw.githubusercontent.com/crowdstrikepremcheck/azureleastprivilegeaudit/refs/heads/main/"
-    "RunbookA": "[uri('[variables('DeploymentVerification')]', 'SecurityAudit.ps1')]",
-    "RunbookB": "[uri('[variables('DeploymentVerification')]', 'SecurityCentreAudit.ps1')]",
-    "DeploymentVerification": "[uri('[variables('DeploymentVerification')]', 'DeploymentVerification.json')]"
+    "RunbookA": "[uri('[parameters('runbooks')]', 'SecurityAudit.ps1')]",
+    "RunbookB": "[uri('[parameters('runbooks')]', 'SecurityCentreAudit.ps1')]",
+    "DeploymentVerification": "[uri('[parameters('runbooks')]', 'DeploymentVerification.json')]"
   },
   "resources": [
     {
