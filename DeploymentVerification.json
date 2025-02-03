@@ -4,7 +4,7 @@
     "parameters": {
 	"mspGuid":{
 	   "type": "string",
-	   "defaultValue": "newGuid()"
+	   "defaultValue": "guid()"
     },
     "variables": {
      "mspRegistrationName": "parameters('mspGuid')",
