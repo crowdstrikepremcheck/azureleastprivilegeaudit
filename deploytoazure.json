@@ -8,9 +8,10 @@
     }
   },
   "variables": {
-    "RunbookA": "[uri('https://raw.githubusercontent.com/crowdstrikepremcheck/azureleastprivilegeaudit/refs/heads/main/SecurityAudit.ps1')]",
-    "RunbookB": "[uri('https://raw.githubusercontent.com/crowdstrikepremcheck/azureleastprivilegeaudit/refs/heads/main/SecurityCentreAudit.ps1')]",
-    "DeploymentVerification": "[uri('https://raw.githubusercontent.com/crowdstrikepremcheck/azureleastprivilegeaudit/refs/heads/main/DeploymentVerification.json')]"
+	"runbooks": "https://raw.githubusercontent.com/crowdstrikepremcheck/azureleastprivilegeaudit/refs/heads/main/"
+    "RunbookA": "[uri('[variables('DeploymentVerification')]', 'SecurityAudit.ps1')]",
+    "RunbookB": "[uri('[variables('DeploymentVerification')]', 'SecurityCentreAudit.ps1')]",
+    "DeploymentVerification": "[uri('[variables('DeploymentVerification')]', 'DeploymentVerification.json')]"
   },
   "resources": [
     {
