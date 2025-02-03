@@ -5,16 +5,16 @@
     "accountName": {
       "type": "string",
       "defaultValue": "auto-azure-least-privilige-audit"
-    },
-	"runbooks": {
-		"type": "string",
-		"defaultValue": "https%3A%2F%2Fraw.githubusercontent.com%2Fcrowdstrikepremcheck%2Fazureleastprivilegeaudit%2Frefs%2Fheads%2Fmain%2F"
     }
   },
   "variables": {
-    "RunbookA": "[uri('https%3A%2F%2Fraw.githubusercontent.com%2Fcrowdstrikepremcheck%2Fazureleastprivilegeaudit%2Frefs%2Fheads%2Fmain%2F', 'SecurityAudit.ps1')]",
-    "RunbookB": "[uri('https%3A%2F%2Fraw.githubusercontent.com%2Fcrowdstrikepremcheck%2Fazureleastprivilegeaudit%2Frefs%2Fheads%2Fmain%2F', 'SecurityCentreAudit.ps1')]",
-    "DeploymentVerification": "[uri('https%3A%2F%2Fraw.githubusercontent.com%2Fcrowdstrikepremcheck%2Fazureleastprivilegeaudit%2Frefs%2Fheads%2Fmain%2F', 'DeploymentVerification.json')]"
+	"uriFormat": "https://raw.githubusercontent.com/crowdstrikepremcheck/azureleastprivilegeaudit/refs/heads/main/",
+	"RunbookAuri": "[uri('[variables('uriFormat')]', 'SecurityAudit.ps1')]",
+    "RunbookBuri": "[uri('[variables('uriFormat')]', 'SecurityCentreAudit.ps1')]",
+    "DeploymentVerificationuri": "[uri('[variables('uriFormat')]', 'DeploymentVerification.json')]",
+	"RunbookA": "[uriComponent(variables('RunbookAuri'))]",
+	"RunbookA": "[uriComponent(variables('RunbookBuri'))]",
+	"DeploymentVerification": "[uriComponent(variables('DeploymentVerificationuri'))]"
   },
   "resources": [
     {
