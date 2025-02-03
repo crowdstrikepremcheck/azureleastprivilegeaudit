@@ -2,6 +2,9 @@
     "$schema": "https://schema.management.azure.com/schemas/2019-08-01/subscriptionDeploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
+	"newGuidValue": {
+	   "type": "string",
+	   "defaultValue": "[newGuid()]"
     },
     "variables": {
      "mspOfferName": "azure-least-privilige-audit",
