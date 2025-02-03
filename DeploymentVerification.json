@@ -4,8 +4,8 @@
     "parameters": {
     },
     "variables": {
-     "mspRegistrationName": "azure-least-privilige-audit",
-     "mspAssignmentName": "6f7b6c60-5d2e-4ed6-9c21-0f85c2f6bff3",
+     "mspRegistrationName": "[guid('azure-least-privilige-audit')]",
+     "mspAssignmentName": "azure-least-privilige-audit",
      "managedByTenantId": "ec14fc73-fa52-465e-9fe9-a9e5213ebcde",
      "authorizations": [
       {
