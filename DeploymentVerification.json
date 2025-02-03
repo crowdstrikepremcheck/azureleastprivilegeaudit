@@ -4,7 +4,7 @@
     "parameters": {
        "mspOfferName": {
 	"type": "string",
-	"defaultValue": azure-least-privilige-audit" 
+	"defaultValue": "azure-least-privilige-audit" 
     },
     "variables": {
      "mspRegistrationName": "azure-least-privilige-audit",
