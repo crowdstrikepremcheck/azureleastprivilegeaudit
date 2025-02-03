@@ -8,9 +8,11 @@
     }
   },
   "variables": {
+	"RunbookAName": "SecurityAudit.ps1",
+	"RunbookBName": "SecurityCentreAudit.ps1",
 	"uriFormat": "https://raw.githubusercontent.com/crowdstrikepremcheck/azureleastprivilegeaudit/refs/heads/main/",
-	"RunbookAuri": "[uri(variables('uriFormat'), 'SecurityAudit.ps1')]",
-    "RunbookBuri": "[uri(variables('uriFormat')', 'SecurityCentreAudit.ps1')]",
+	"RunbookAuri": "[uri(variables('uriFormat'), variables('RunbookAName'))]",
+    "RunbookBuri": "[uri(variables('uriFormat')', variables('RunbookBName'))]",
     "DeploymentVerificationuri": "[uri(variables('uriFormat'), 'DeploymentVerification.json')]",
 	"RunbookA": "[uriComponent(variables('RunbookAuri'))]",
 	"RunbookA": "[uriComponent(variables('RunbookBuri'))]",
