@@ -26,9 +26,7 @@
     },
     {
       "apiVersion": "2020-02-01-preview",
-      "dependsOn": [
-        "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'))]"
-      ],
+	  "type": "Microsoft.Automation/automationAccounts/runbooks",
       "location": "eastus",
       "name": "SecurityAudit",
       "properties": {
@@ -44,9 +42,7 @@
     },
     {
       "apiVersion": "2020-02-01-preview",
-      "dependsOn": [
-        "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'))]"
-      ],
+	  "type": "Microsoft.Automation/automationAccounts/runbooks",
       "location": "westeurope",
       "name": "SecurityCenterAudit",
       "properties": {
